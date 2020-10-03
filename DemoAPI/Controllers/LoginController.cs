@@ -20,7 +20,7 @@ namespace JWTAuthenticationExample.Controllers
         private readonly IConfiguration _config;
         private List<User> appUsers = new List<User>
             {
-            new User { FullName = "Vaibhav Bhapkar", UserName = "admin", Password = "1234", UserRole = "Admin" },
+            new User { FullName = "Ahrnuld", UserName = "admin", Password = "1234", UserRole = "Admin" },
             new User { FullName = "Test User", UserName = "user", Password = "1234", UserRole = "User" }
             };
         public LoginController(IConfiguration config)
