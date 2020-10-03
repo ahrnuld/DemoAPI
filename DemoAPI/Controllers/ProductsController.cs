@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DemoAPI.Data;
 using DemoAPI.Models;
+using Microsoft.AspNetCore.Authorization;
+using JWTAuthenticationExample.Models;
 
 namespace DemoAPI.Controllers
 {
@@ -23,6 +25,7 @@ namespace DemoAPI.Controllers
 
         // GET: api/Products
         [HttpGet]
+        [Authorize(Policy = Policies.User)]
         public async Task<ActionResult<IEnumerable<Product>>> GetProduct()
         {
             return await _context.Product.Include(p => p.Category).ToListAsync();
