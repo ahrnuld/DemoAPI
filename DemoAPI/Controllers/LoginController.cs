@@ -40,6 +40,7 @@ namespace JWTAuthenticationExample.Controllers
                 {
                     token = tokenString,
                     userDetails = user,
+                    expires = DateTime.Now.AddMinutes(30)
                 });
             }
             return response;
