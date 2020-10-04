@@ -33,6 +33,7 @@ namespace DemoAPI.Controllers
 
         // GET: api/Products/5
         [HttpGet("{id}")]
+        [Authorize(Policy = Policies.User)]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
             var product = await _context.Product.FindAsync(id);
@@ -49,6 +50,7 @@ namespace DemoAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
+        [Authorize(Policy = Policies.User)]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
             if (id != product.Id)
@@ -81,6 +83,7 @@ namespace DemoAPI.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
+        [Authorize(Policy = Policies.User)]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
             _context.Product.Add(product);
@@ -91,6 +94,7 @@ namespace DemoAPI.Controllers
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
+        [Authorize(Policy = Policies.User)]
         public async Task<ActionResult<Product>> DeleteProduct(int id)
         {
             var product = await _context.Product.FindAsync(id);
